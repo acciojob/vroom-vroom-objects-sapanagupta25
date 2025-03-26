@@ -1,36 +1,28 @@
-function Car(make, model) {
-    this.make = make;
-    this.model = model;
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+
+    getMakeModel() {
+        return `${this.make} ${this.model}`;
+    }
 }
 
-Car.prototype.getMakeModel = function() {
-    return `${this.make} ${this.model}`;	
-}
+class SportsCar extends Car {
+    constructor(make, model, topSpeed) {
+        super(make, model);
+        this.topSpeed = topSpeed;
+    }
 
-function SportsCar(make, model, topSpeed) {
-    Car.call(this, make, model);
-    this.topSpeed = topSpeed;
-}
-
-SportsCar.prototype = Object.create(Car.prototype);
-SportsCar.prototype.constructor = SportsCar;
-
-SportsCar.prototype.getTopSpeed = function() {
-    return this.topSpeed;
+    getTopSpeed() {
+        return this.topSpeed;
+    }
 }
 
 // Assign to window explicitly
-Object.defineProperty(window, 'Car', {
-    value: Car,
-    writable: true,
-    configurable: true
-});
-
-Object.defineProperty(window, 'SportsCar', {
-    value: SportsCar,
-    writable: true,
-    configurable: true
-});
+window.Car = Car;
+window.SportsCar = SportsCar;
 
 const car = new SportsCar("Ferrari", "Testarossa", 200);
 console.log(car.getMakeModel()); // Output: Ferrari Testarossa
