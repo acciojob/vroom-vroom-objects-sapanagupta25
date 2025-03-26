@@ -5,8 +5,8 @@ class Car {
 	}
 
 	getMakeModel(){
-		return ${this.make} ${this.model};	
-	}
+    return `${this.make} ${this.model}`;	
+}
 }
 
 class SportsCar extends Car {
