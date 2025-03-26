@@ -20,10 +20,6 @@ class SportsCar extends Car {
     }
 }
 
-// Assign to window explicitly
+// Attach to window explicitly
 window.Car = Car;
 window.SportsCar = SportsCar;
-
-const car = new SportsCar("Ferrari", "Testarossa", 200);
-console.log(car.getMakeModel()); // Output: Ferrari Testarossa
-console.log(car.getTopSpeed()); // Output: 200
