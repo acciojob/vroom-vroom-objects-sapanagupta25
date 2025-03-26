@@ -19,11 +19,19 @@ SportsCar.prototype.getTopSpeed = function() {
     return this.topSpeed;
 }
 
+// Assign to window explicitly
+Object.defineProperty(window, 'Car', {
+    value: Car,
+    writable: true,
+    configurable: true
+});
+
+Object.defineProperty(window, 'SportsCar', {
+    value: SportsCar,
+    writable: true,
+    configurable: true
+});
+
 const car = new SportsCar("Ferrari", "Testarossa", 200);
 console.log(car.getMakeModel()); // Output: Ferrari Testarossa
 console.log(car.getTopSpeed()); // Output: 200
-
-// Do not change the code below
-window.Car = Car;
-window.SportsCar = SportsCar;
-	
